@@ -24,25 +24,29 @@ body{
     margin: 30px auto;
     font-size: 3.5em;
 }
-.title{
-    font-weight: bolder;
-
+form[name="gpa-forn"]{
+    background-color: transparent;
+    color:black;
+    font-family: Poppins,sans-serif;
 }
-form[name="dimension-form"] fieldset{
+form[name="gpa-form"] fieldset{
     width: 500px;
     margin: 20px auto;
     text-align: center;
     border-radius: 10px;
+    font-weight: bold;
 }
-.user_input{
-    display: inline;
-    font-size: 1.5em;
-    margin: 10px auto;
-    width: 100px;
-    border-radius: 10px;
-    border: 3px solid #ccc;
+.course{
+    font-size: 1.2em;
+    margin:0 0 0 10px;
+    padding: 5px 3px;
+    width: 150px;
+    border-radius: 3px;
+    border: 1px solid #199E6C;
     outline: none !important;
-    text-align: center;
+    background-color: inherit;
+    font-family: inherit;
+    color: black;
 }
 button{
     padding:16px 20px;
