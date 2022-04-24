@@ -17,36 +17,43 @@ document.addEventListener("DOMContentLoaded", function () {
     /*** Calculating GPA on selecting credit hours ***/
     courseTable.addEventListener("change", function (event) {
         let selected = event.target;
+        console.log(document.getElementsByName(selected.name)[0].value)
         if(selected.tagName==="SELECT"){
             if (selected.name === "credit") /*** Reset total grade or total credit hours ***/
-            totalCredits = 0;
-            else
-                totalGrades = 0.0;
+                totalCredits = 0;
+            totalGrades = 0.0;
             /*** on changing any credit hour or grade recalculate total grades or credits ***/
             let list=document.getElementsByName(selected.name);
             for (let i = 0; i < courseTable.rows.length; i++) {
                 if(list[i].value!==""){
                     if (selected.name === "credit")
                         totalCredits += (+list[i].value);
-                    else//TODO
-                        totalGrades += (+list[i].value);
+                    let change;
+                    if(selected.name==="credit")
+                        change=document.getElementsByName("grade");
+                    else
+                        change=document.getElementsByName("credit");
+                    totalGrades += ((+list[i].value) * (+change[i].value));
                 }
             }
             /*** recalculate gpa and show on screen ***/
             let rowIndex = selected.parentElement.parentElement.rowIndex;
             let credit = document.getElementsByName("credit")[rowIndex];
             if (selected.name === "credit" || (selected.name === "grade" && credit.value !== "")) {
-                calculateGPA()
+                if((+totalCredits.toFixed(2))===0.0)
+                    output.setAttribute("style","display:none");
+                else
+                    calculateGPA()
             }
         }
     });
 
     /*** recalculate gpa and show on screen ***/
     function calculateGPA() {
-        totalCredits=totalCredits.toFixed(2);
-        totalGrades=totalGrades.toFixed(2);
+        totalCredits=(+totalCredits.toFixed(2));
+        totalGrades=(+totalGrades.toFixed(2));
         totalGPA = totalGrades / totalCredits;
-        totalGPA=totalGPA.toFixed(2);
+        totalGPA=(+totalGPA.toFixed(2));
         /*** displaying GPA ***/
         output.setAttribute("style","display:block");
         gpa.innerText = totalGPA.toString();
@@ -56,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             circle.style.backgroundColor = "#b7b400";
         else
             circle.style.backgroundColor = "#B71919";
-        console.log("CH: "+totalCredits.toString());
-        console.log("Grades: "+totalGrades.toString());
+        console.log("CH: "+totalCredits.toFixed(2));
+        console.log("Grades: "+totalGrades.toFixed(2));
     }
 });
