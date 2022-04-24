@@ -6,7 +6,7 @@
     <title>GPA Calculator</title>
     <link rel="icon" type="image/png" href="images/gpa.png">
     <link rel="stylesheet" href="css/cssReset.css">
-<!--    <link href="https://fonts.cdnfonts.com/css/creation" rel="stylesheet">-->
+    <link href="https://fonts.cdnfonts.com/css/creation" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
 </head>
@@ -18,61 +18,33 @@
         <table id="courses">
             <tbody>
                 <tr>
-                    <td><input type="text" class="course" placeholder="e.g. Course 1" datafld="1"></td>
-                    <td><h1 class="labels">Grade: </h1></td>
-                    <td>
+                    <td class="col1"><input type="text" class="course" placeholder="e.g. Course 1"></td>
+                    <td class="col2"><h1 class="labels">Grade: </h1></td>
+                    <td class="col3">
                         <select name="grade">
                             <option value="" selected>&nbsp;&nbsp;-</option>
                             <option value="4.00">A</option>
                             <option value="3.70">A-</option>
                             <option value="3.33">B+</option>
                             <option value="3.00">B</option>
+                            <option value="2.70">B-</option>
                             <option value="2.30">C+</option>
                             <option value="2.00">C</option>
                             <option value="1.70">C-</option>
                             <option value="1.30">D+</option>
                             <option value="1.00">D</option>
                             <option value="0.70">D-</option>
-                            <option value="0.0">F-</option>
+                            <option value="0.0">F</option>
                         </select>
                     </td>
-                    <td><h1 class="labels">Credits: </h1></td>
-                    <td><select name="credit" required>
+                    <td class="col4"><h1 class="labels">Credits: </h1></td>
+                    <td class="col5"><select name="credit" required>
                         <option value="">-</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
                     </td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="course" placeholder="e.g. Course 2"></td>
-                    <td><h1 class="labels">Grade: </h1></td>
-                    <td>
-                        <select name="grade">
-                            <option value="" selected>&nbsp;&nbsp;-</option>
-                            <option value="4.00">A</option>
-                            <option value="3.70">A-</option>
-                            <option value="3.33">B+</option>
-                            <option value="3.00">B</option>
-                            <option value="2.30">C+</option>
-                            <option value="2.00">C</option>
-                            <option value="1.70">C-</option>
-                            <option value="1.30">D+</option>
-                            <option value="1.00">D</option>
-                            <option value="0.70">D-</option>
-                            <option value="0.0">F-</option>
-                        </select>
-                    </td>
-                    <td><h1 class="labels">Credits: </h1></td>
-                    <td><select name="credit" required>
-                        <option value="">-</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    </td>
-                    <td class="closeBtn">X</td>
                 </tr>
             </tbody>
         </table>

@@ -24,7 +24,7 @@ body{
     margin: 30px auto;
     font-size: 3.5em;
 }
-form[name="gpa-forn"]{
+form[name="gpa-form"]{
     background-color: transparent;
     color:black;
     font-family: Poppins,sans-serif;
@@ -59,13 +59,13 @@ select[name="credit"]{
 .labels{
     margin:0 10px;
 }
-button,.closeBtn,#circle{
+button,.removeBtn,#circle{
     box-shadow: inset 0 0 3px #000;
     transition-property: background-color,box-shadow,color;
     transition-duration: .5s;
     transition-timing-function: ease-out;
 }
-.closeBtn{
+.removeBtn{
     position: absolute;
     font-size: 10pt;
     cursor: pointer;
@@ -75,7 +75,7 @@ button,.closeBtn,#circle{
     padding: 5px 8px;
     margin: 7px 0 0 13px;
 }
-.closeBtn:hover{
+.removeBtn:hover{
     color: black;
 }
 #add{
@@ -90,7 +90,7 @@ button,.closeBtn,#circle{
     background-color: #199E6C;
     border-color: black;
 }
-button:active,.closeBtn:active{
+button:active,.removeBtn:active{
     transform:translateY(7px);
 }
 #output{
@@ -116,15 +116,49 @@ button:active,.closeBtn:active{
 }
 /************************************** MOBILE VIEW *****************************************/
 @media only screen and (max-width: 600px){
+    body{
+        background: #FFEEEE;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #DDEFBB, #FFEEEE);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
     .main-title{
         font-size: 2em;
     }
-    form[name="dimension-form"] fieldset{
+    form[name="gpa-form"] fieldset{
         width:auto;
         margin:10px 10px;
     }
-    .user_input{
-        font-size: 1.5em;
+    table, thead, tbody, td, tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+    }
+    tr { border-bottom: 1px solid #199E6C; }
+    td {
+        /* Behave  like a "row" */
+        position: relative;
+    }
+    .col1 input{
+        width: auto;
+        text-align: center;
+    }
+    .col1{
+
+    }
+    .col2{
+
+    }
+    .col3{
+
+    }
+    .col4{
+
+    }
+    .col5{
+
     }
 
 }
