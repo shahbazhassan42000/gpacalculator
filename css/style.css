@@ -15,7 +15,7 @@ body{
     font-family: arial, serif;
     color: #333;
     text-align: center;
-    background: url("/images/gpa_bg.jpg") no-repeat;
+    background: url("../images/gpa_bg.jpg") no-repeat;
     background-size: cover;
 }
 #main-title{
