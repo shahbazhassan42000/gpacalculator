@@ -5,13 +5,73 @@ document.addEventListener("DOMContentLoaded", function () {
     let courseNo = 1;
     const addBtn = document.getElementById("add");
     const courseTable = document.getElementById("courses");
+    const tableBody = courseTable.firstElementChild;
+    const courseName = document.getElementsByClassName("course")[0];
+    const grade = document.getElementsByClassName("labels")[0];
+    const gradeList = document.getElementsByName("grade")[0];
+    const credit = document.getElementsByClassName("labels")[1];
+    const creditList = document.getElementsByName("credit")[0];
     const output = document.getElementById("output");
     const circle = document.getElementById("circle");
     const gpa = document.getElementById("gpa");
+
     /*** Add ANOTHER COURSE ***/
     addBtn.addEventListener("click", function (event) {
+        if(courseNo>=7){
+            alert("ERROR!!! Maximum courses per semester reached");
+        }else{
+            let tr=document.createElement("TR");
+            let td1=document.createElement("TD");
+            let td2=document.createElement("TD");
+            let td3=document.createElement("TD");
+            let td4=document.createElement("TD");
+            let td5=document.createElement("TD");
+            let td6=document.createElement("TD");
 
+            courseNo++; /*** incrementing table rows ***/
+
+            /*** adding course name ***/
+            let cn=courseName.cloneNode(true);
+            cn.placeholder="e.g. Course "+courseNo.toString();
+            cn.value="";
+            td1.appendChild(cn);
+            tr.appendChild(td1);
+
+            /*** adding grade ***/
+            td2.appendChild(grade.cloneNode(true));
+            tr.appendChild(td2);
+
+            /*** adding grade List ***/
+            td3.appendChild(gradeList.cloneNode(true));
+            tr.appendChild(td3);
+
+            /*** adding credit ***/
+            td4.appendChild(credit.cloneNode(true));
+            tr.appendChild(td4);
+
+            /*** adding credit list ***/
+            td5.appendChild(creditList.cloneNode(true));
+            tr.appendChild(td5);
+
+            /*** creating and then adding remove course button ***/
+            td6.setAttribute("class","removeBtn");
+            td6.innerHTML="X";
+            tr.appendChild(td6);
+
+            tableBody.appendChild(tr);
+        }
         event.preventDefault();
+    });
+
+    /*** REMOVE COURSE FROM TABLE ***/
+    courseTable.addEventListener("click",function (event) {
+        let btn = event.target;
+        if(btn.classList.contains("removeBtn")){
+            if(courseNo>1){
+                btn.parentElement.remove();
+                courseNo--;
+            }
+        }
     });
 
     /*** Calculating GPA on selecting credit hours ***/
