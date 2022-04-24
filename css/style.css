@@ -15,7 +15,7 @@ body{
     font-family: arial, serif;
     color: #333;
     text-align: center;
-    background: url("/images/bg.jpg") no-repeat;
+    background: url("/images/gpa_bg.jpg") no-repeat;
     background-size: cover;
 }
 #main-title{
@@ -62,7 +62,7 @@ select[name="credit"]{
 .labels{
     margin:0 10px;
 }
-button,.removeBtn,#circle{
+button,.removeBtn,#circle,.course,select[name="credit"],select[name="grade"]{
     box-shadow: inset 0 0 3px #000;
     transition-property: background-color,box-shadow,color;
     transition-duration: .5s;
