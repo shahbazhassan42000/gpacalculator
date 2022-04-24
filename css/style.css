@@ -18,10 +18,10 @@ body{
     background: url("/images/bg.jpg") no-repeat;
     background-size: cover;
 }
-.main-title{
+#main-title{
     font-family: 'creation', sans-serif;
     font-weight: bolder;
-    margin: 30px auto;
+    margin: 28px auto;
     font-size: 3.5em;
 }
 form[name="gpa-form"]{
@@ -31,7 +31,7 @@ form[name="gpa-form"]{
 }
 form[name="gpa-form"] fieldset{
     width: 500px;
-    margin: 20px auto;
+    margin: 0 auto;
     text-align: center;
     border-radius: 10px;
     font-weight: bold;
@@ -43,10 +43,13 @@ form[name="gpa-form"] fieldset{
     border-radius: 3px;
     border: 1px solid #199E6C;
     outline: none !important;
-    background-color: inherit;
+    background-color: whitesmoke;
     font-family: Poppins, sans-serif;
     color: black;
     font-size: inherit;
+}
+.course{
+    text-align: center;
 }
 select[name="grade"]{
     width: auto;
@@ -122,12 +125,15 @@ button:active,.removeBtn:active{
         background: linear-gradient(to right, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
-    .main-title{
+    #main-title{
         font-size: 2em;
     }
     form[name="gpa-form"] fieldset{
         width:auto;
         margin:10px 10px;
+    }
+    select[name="grade"],select[name="credit"]{
+        padding: 0;
     }
     table, thead, tbody, td, tr {
         display: block;
@@ -136,29 +142,36 @@ button:active,.removeBtn:active{
     thead tr {
         position: absolute;
     }
-    tr { border-bottom: 1px solid #199E6C; }
+    tr {
+        border-bottom: 1px solid #199E6C;
+        margin-bottom: 10px;
+    }
     td {
         /* Behave  like a "row" */
         position: relative;
     }
-    .col1 input{
+    .course{
         width: auto;
         text-align: center;
     }
-    .col1{
-
+    .removeBtn{
+        margin:-37px 0 0 298px;
     }
     .col2{
-
+        top:11px;
+        right:32px
     }
     .col3{
-
+        bottom: 13px;
+        left: 29px;
     }
     .col4{
-
+        right: 38px;
     }
     .col5{
-
+        bottom: 24px;
+        left: 28px;
+        margin-bottom: -20px;
     }
 
 }

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let courseNo = 1;
     const addBtn = document.getElementById("add");
     const courseTable = document.getElementById("courses");
+    const title = document.getElementById("main-title");
     const tableBody = courseTable.firstElementChild;
     const courseName = document.getElementsByClassName("course")[0];
     const grade = document.getElementsByClassName("labels")[0];
@@ -23,12 +24,18 @@ document.addEventListener("DOMContentLoaded", function () {
             let tr=document.createElement("TR");
             let td1=document.createElement("TD");
             let td2=document.createElement("TD");
+            td2.setAttribute("class","col2");
             let td3=document.createElement("TD");
+            td3.setAttribute("class","col3");
             let td4=document.createElement("TD");
+            td4.setAttribute("class","col4");
             let td5=document.createElement("TD");
+            td5.setAttribute("class","col5");
             let td6=document.createElement("TD");
 
             courseNo++; /*** incrementing table rows ***/
+            if(courseNo===7)
+                title.setAttribute("style","margin:6px auto");
 
             /*** adding course name ***/
             let cn=courseName.cloneNode(true);
@@ -69,7 +76,26 @@ document.addEventListener("DOMContentLoaded", function () {
         if(btn.classList.contains("removeBtn")){
             if(courseNo>1){
                 btn.parentElement.remove();
+                if(courseNo===7)
+                    title.setAttribute("style","margin:28px auto");
                 courseNo--;
+
+                /*** on removing any row recalculate total grades or credits ***/
+                totalCredits = 0;
+                totalGrades = 0.0;
+                let credits=document.getElementsByName("credit");
+                let grades=document.getElementsByName("grade");
+                for (let i = 0; i < courseTable.rows.length; i++) {
+                    if(credits[i].value!==""){
+                        totalCredits += (+credits[i].value);
+                        totalGrades += ((+credits[i].value) * (+grades[i].value));
+                    }
+                }
+                /*** recalculate gpa and show on screen ***/
+                if((+totalCredits.toFixed(2))===0.0)
+                    output.setAttribute("style","display:none");
+                else
+                    calculateGPA()
             }
         }
     });
@@ -77,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
     /*** Calculating GPA on selecting credit hours ***/
     courseTable.addEventListener("change", function (event) {
         let selected = event.target;
-        console.log(document.getElementsByName(selected.name)[0].value)
         if(selected.tagName==="SELECT"){
             if (selected.name === "credit") /*** Reset total grade or total credit hours ***/
                 totalCredits = 0;
